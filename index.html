@@ -2,130 +2,154 @@
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>证书查询信息</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>查询信息</title>
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
-    background: #f0f2f5;
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-  }
-  .card {
-    background: #fff;
-    border-radius: 12px;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+  html, body {
     width: 100%;
-    max-width: 480px;
-    overflow: hidden;
+    min-height: 100vh;
+    background: #fff;
+    font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    -webkit-font-smoothing: antialiased;
   }
+
+  /* 顶部导航栏 */
   .header {
-    background: linear-gradient(135deg, #1a3a6b 0%, #2c5aa0 100%);
-    color: #fff;
-    padding: 28px 24px;
-    text-align: center;
+    width: 100%;
+    height: 88px;
+    background: #2b3e6b;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding-bottom: 14px;
+    position: relative;
   }
   .header h1 {
-    font-size: 22px;
+    color: #fff;
+    font-size: 20px;
     font-weight: 600;
-    letter-spacing: 2px;
+    letter-spacing: 1px;
   }
-  .header .subtitle {
-    font-size: 13px;
-    opacity: 0.8;
-    margin-top: 6px;
+  /* 右上角胶囊按钮装饰 */
+  .header .capsule {
+    position: absolute;
+    top: 36px;
+    right: 12px;
+    width: 88px;
+    height: 32px;
+    background: rgba(0,0,0,0.35);
+    border-radius: 16px;
   }
-  .result-banner {
-    background: #e8f5e9;
-    color: #2e7d32;
-    text-align: center;
-    padding: 14px;
-    font-size: 18px;
-    font-weight: 600;
-    border-bottom: 1px solid #c8e6c9;
+
+  /* 内容区 */
+  .content {
+    padding: 40px 20px 0 20px;
   }
-  .info-table {
-    padding: 8px 0;
+
+  /* 表格 */
+  .table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid #d4dae3;
   }
-  .info-row {
-    display: flex;
-    padding: 16px 24px;
-    border-bottom: 1px solid #f0f0f0;
+  .table tr {
+    border-bottom: 1px solid #d4dae3;
   }
-  .info-row:last-child { border-bottom: none; }
-  .info-label {
-    width: 100px;
-    flex-shrink: 0;
-    color: #888;
-    font-size: 15px;
+  .table tr:last-child {
+    border-bottom: none;
   }
-  .info-value {
-    flex: 1;
+  .table td {
+    padding: 16px 14px;
+    font-size: 17px;
     color: #333;
-    font-size: 15px;
-    font-weight: 500;
-    word-break: break-all;
+    line-height: 1.5;
+    vertical-align: middle;
   }
-  .footer {
-    padding: 16px 24px;
+  .table td.label {
+    width: 32%;
+    border-right: 1px solid #d4dae3;
+    color: #333;
+    font-weight: 400;
+  }
+
+  /* 查询结果如下 标题行 */
+  .result-header {
+    background: #eef1f5;
     text-align: center;
-    color: #aaa;
-    font-size: 12px;
-    background: #fafafa;
+    padding: 14px 0;
+    border: 1px solid #d4dae3;
+    border-bottom: none;
   }
-  .seal {
+  .result-header span {
     display: inline-block;
-    border: 2px solid #c62828;
-    color: #c62828;
-    padding: 4px 12px;
-    border-radius: 4px;
-    font-size: 13px;
+    background: #fff;
+    padding: 4px 10px;
+    font-size: 20px;
     font-weight: 600;
-    margin-top: 8px;
-    transform: rotate(-3deg);
-    opacity: 0.85;
+    color: #222;
+  }
+
+  /* 底部更多 */
+  .footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+    padding: 16px 0 24px 0;
+    background: #fff;
+    border-top: 1px solid #eee;
+    color: #666;
+    font-size: 17px;
+  }
+  .footer .icon {
+    display: inline-block;
+    margin-right: 6px;
+    font-size: 18px;
   }
 </style>
 </head>
 <body>
-  <div class="card">
-    <div class="header">
-      <h1>证书查询信息</h1>
-      <div class="subtitle">Certificate Verification</div>
+  <div class="header">
+    <div class="capsule"></div>
+    <h1>查询信息</h1>
+  </div>
+
+  <div class="content">
+    <div class="result-header">
+      <span>查询结果如下：</span>
     </div>
-    <div class="result-banner">
-      检测结果：合格
-    </div>
-    <div class="info-table">
-      <div class="info-row">
-        <div class="info-label">证书单位</div>
-        <div class="info-value">中冶武勘工程技术有限公司</div>
-      </div>
-      <div class="info-row">
-        <div class="info-label">检测日期</div>
-        <div class="info-value">2024-05-25</div>
-      </div>
-      <div class="info-row">
-        <div class="info-label">有效日期</div>
-        <div class="info-value">2025-05-24</div>
-      </div>
-      <div class="info-row">
-        <div class="info-label">其他</div>
-        <div class="info-value">/</div>
-      </div>
-      <div class="info-row">
-        <div class="info-label">检测机构</div>
-        <div class="info-value">北京市计量检测科学研究院</div>
-      </div>
-    </div>
-    <div class="footer">
-      <div class="seal">检测合格</div>
-      <div style="margin-top:10px;">本页面由证书查询系统生成</div>
-    </div>
+    <table class="table">
+      <tr>
+        <td class="label">证书单位</td>
+        <td>中冶武勘工程技术有限公司</td>
+      </tr>
+      <tr>
+        <td class="label">检测日期</td>
+        <td>2024-05-25</td>
+      </tr>
+      <tr>
+        <td class="label">有效日期</td>
+        <td>2025-05-24</td>
+      </tr>
+      <tr>
+        <td class="label">检测结果</td>
+        <td>合格</td>
+      </tr>
+      <tr>
+        <td class="label">其他</td>
+        <td>/</td>
+      </tr>
+      <tr>
+        <td class="label">检测机构</td>
+        <td>北京市计量检测科学研究院</td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="footer">
+    <span class="icon">&#9776;</span> 更多
   </div>
 </body>
 </html>
