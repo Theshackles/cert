@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>证书查询信息</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    background: #f0f2f5;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+  }
+  .card {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    width: 100%;
+    max-width: 480px;
+    overflow: hidden;
+  }
+  .header {
+    background: linear-gradient(135deg, #1a3a6b 0%, #2c5aa0 100%);
+    color: #fff;
+    padding: 28px 24px;
+    text-align: center;
+  }
+  .header h1 {
+    font-size: 22px;
+    font-weight: 600;
+    letter-spacing: 2px;
+  }
+  .header .subtitle {
+    font-size: 13px;
+    opacity: 0.8;
+    margin-top: 6px;
+  }
+  .result-banner {
+    background: #e8f5e9;
+    color: #2e7d32;
+    text-align: center;
+    padding: 14px;
+    font-size: 18px;
+    font-weight: 600;
+    border-bottom: 1px solid #c8e6c9;
+  }
+  .info-table {
+    padding: 8px 0;
+  }
+  .info-row {
+    display: flex;
+    padding: 16px 24px;
+    border-bottom: 1px solid #f0f0f0;
+  }
+  .info-row:last-child { border-bottom: none; }
+  .info-label {
+    width: 100px;
+    flex-shrink: 0;
+    color: #888;
+    font-size: 15px;
+  }
+  .info-value {
+    flex: 1;
+    color: #333;
+    font-size: 15px;
+    font-weight: 500;
+    word-break: break-all;
+  }
+  .footer {
+    padding: 16px 24px;
+    text-align: center;
+    color: #aaa;
+    font-size: 12px;
+    background: #fafafa;
+  }
+  .seal {
+    display: inline-block;
+    border: 2px solid #c62828;
+    color: #c62828;
+    padding: 4px 12px;
+    border-radius: 4px;
+    font-size: 13px;
+    font-weight: 600;
+    margin-top: 8px;
+    transform: rotate(-3deg);
+    opacity: 0.85;
+  }
+</style>
+</head>
+<body>
+  <div class="card">
+    <div class="header">
+      <h1>证书查询信息</h1>
+      <div class="subtitle">Certificate Verification</div>
+    </div>
+    <div class="result-banner">
+      检测结果：合格
+    </div>
+    <div class="info-table">
+      <div class="info-row">
+        <div class="info-label">证书单位</div>
+        <div class="info-value">中冶武勘工程技术有限公司</div>
+      </div>
+      <div class="info-row">
+        <div class="info-label">检测日期</div>
+        <div class="info-value">2024-05-25</div>
+      </div>
+      <div class="info-row">
+        <div class="info-label">有效日期</div>
+        <div class="info-value">2025-05-24</div>
+      </div>
+      <div class="info-row">
+        <div class="info-label">其他</div>
+        <div class="info-value">/</div>
+      </div>
+      <div class="info-row">
+        <div class="info-label">检测机构</div>
+        <div class="info-value">北京市计量检测科学研究院</div>
+      </div>
+    </div>
+    <div class="footer">
+      <div class="seal">检测合格</div>
+      <div style="margin-top:10px;">本页面由证书查询系统生成</div>
+    </div>
+  </div>
+</body>
+</html>
